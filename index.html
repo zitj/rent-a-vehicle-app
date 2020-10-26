@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a vehicle app</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="script/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Rent a vehicle app</h1>
+        <nav>
+            <a class="active">Add new customer</a>
+            <a>Add new vehicle</a>
+            <a>Rent a vehicle</a>
+        </nav>
+    </header>
+<div id="customer-panel" class="panel active">
+    <div class="form-container">    
+        <h2>Add new customer</h2>
+        <form action="">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <input type="submit" id="submit" value="Store this data">
+        <input type="hidden" id="controlIdEdit">
+    </form>
+    </div> <!-- end .form-container -->
+
+    <div class="data-container">
+        <h2>All Customers</h2>
+        <table>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Action</th>
+            </tr>
+           
+          </table>
+    </div> <!-- end .data-container -->
+</div><!-- end #customer-panel -->
+
+<div id="vehicle-panel" class="panel">
+    <div class="form-container">    
+        <h2>Add new vehicle</h2>
+        <form action="">
+        <input type="text" name="brand" placeholder="Brand" required>
+        <input type="text" name="model" placeholder="Model" required>
+        <input type="text" name="year" placeholder="Construction year" required>
+        <input type="text" name="fuel" placeholder="Fuel type" required>
+        <input type="text" name="seats" placeholder="Number of seats" required>
+        <input type="text" name="picture" placeholder="Img URL" required>
+        <input type="text" name="price" placeholder="Price per day" required>
+        <input type="text" name="count" placeholder="Count" required>
+        <input type="submit" id="submitVehicle" value="Store this data">
+        <input type="hidden" id="vehicleIdEdit">
+    </form>
+    </div> <!-- end .form-container -->
+
+    <div class="data-container">
+        <h2>All Vehicles</h2>
+        <table>
+            <tr>
+              <th>Picture</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Construction year</th>
+              <th>Fuel type</th>
+              <th>Number of seats</th>
+              <th>Price per day</th>
+              <th>Number of available vehicles</th>
+              <th>Action</th>
+            </tr>
+           
+          </table>
+    </div> <!-- end .data-container -->
+</div><!-- end #customer-panel -->
+
+<div class="excuse-panel panel">
+    <h2>Unfortunately, I have not had enough time to finish this feature. :(</h2>
+    <p>Apparently I applied quite late for this internship program, just few days ago...</p>
+</div>
+
+</body>
+</html>
