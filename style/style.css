@@ -153,6 +153,18 @@ header nav a:nth-child(3).active {
   margin-right: 5px;
 }
 
+#excuse-panel {
+  margin-top: 10%;
+}
+
+#excuse-panel h2 {
+  font-size: 2.3em;
+}
+
+#excuse-panel p {
+  font-size: 1.5em;
+}
+
 @-webkit-keyframes intro {
   0% {
     -webkit-transform: translateY(150px);

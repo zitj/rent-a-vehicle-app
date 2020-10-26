@@ -7,12 +7,6 @@ body{
     background: linear-gradient(90deg, #000000 0%, #434343 100%);
     color: white;
 }
-// .data-container.active,
-// .form-container.active{
-//     display: block;
-//     animation: intro .5s ease-in-out;
-// }
-
 header{
     display: flex;
     justify-content: space-between;
@@ -106,7 +100,6 @@ button,
         border: 2px solid $my-green;
         border-collapse: collapse;
     }
-   
     th,
     td{
         padding: 20px;
@@ -135,6 +128,15 @@ button,
            }
        }
    }
+}
+#excuse-panel{
+    margin-top: 10%;
+    h2{
+        font-size: 2.3em;
+    }
+    p{
+        font-size: 1.5em;
+    }
 }
 @keyframes intro{
     0%{
