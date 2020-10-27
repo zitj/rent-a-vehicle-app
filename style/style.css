@@ -147,6 +147,11 @@ header nav a:nth-child(3).active {
   font-weight: 300;
 }
 
+.data-container td img {
+  width: 100px;
+  height: 60px;
+}
+
 .data-container td button {
   padding: 10px 15px;
   background: #a32e2e;
@@ -197,14 +202,14 @@ header nav a:nth-child(3).active {
 }
 
 #vehicle-panel .data-container table {
-  width: 56%;
-  margin-left: 22%;
+  width: 60%;
+  margin-left: 20%;
 }
 
 @-webkit-keyframes intro {
   0% {
-    -webkit-transform: translateY(150px);
-            transform: translateY(150px);
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
     opacity: 0;
   }
   100% {
@@ -216,8 +221,8 @@ header nav a:nth-child(3).active {
 
 @keyframes intro {
   0% {
-    -webkit-transform: translateY(150px);
-            transform: translateY(150px);
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
     opacity: 0;
   }
   100% {

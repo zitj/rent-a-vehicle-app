@@ -119,6 +119,10 @@ select{
     }
    td{
        font-weight: 300;
+       img{
+           width: 100px;
+           height: 60px;
+       }
        button{
            padding: 10px 15px;
            background: rgb(163, 46, 46);
@@ -163,15 +167,15 @@ select{
     .data-container{
         margin-top: 2%;
         table{
-            width: 56%;
-            margin-left: 22%;
+            width: 60%;
+            margin-left: 20%;
         }
     }
 }
 
 @keyframes intro{
     0%{
-        transform: translateY(150px);
+        transform: translateY(100px);
         opacity: 0;
     }
     100%{
