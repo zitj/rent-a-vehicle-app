@@ -80,14 +80,27 @@ navButtons[2].addEventListener('click', ()=>{
 });
 
 //Global functions
-const renderCustomerTableHeading = (e) =>{
-    e.innerHTML = `  
+const renderCustomerTableHeading = () =>{
+    table.innerHTML = `  
         <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Mobile</th>
         <th>Action</th>
       </tr>`;
+}
+const renderVehicleTableHeading = () =>{
+    vehicleTable.innerHTML = `  
+    <tr>
+    <th>Picture</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Construction year</th>
+    <th>Fuel type</th>
+    <th>Number of seats</th>
+    <th>Price per day</th>
+    <th>Action</th>
+  </tr>`;
 }
 
 //Add new customer
@@ -214,14 +227,11 @@ customerSearchButton.addEventListener('click', (e)=>{
     e.preventDefault();
     const cstmrs = JSON.parse(localStorage.getItem('customers'));
     const newData = cstmrs.filter(item => item.name == customerSearchInput.value || item.email == customerSearchInput.value);
-    renderCustomerTableHeading(table);
+    renderCustomerTableHeading();
     if(customerSearchInput.value == ''){
         alert('We have not found anything!');
-        
-
     }
     for(let i = 0; i < newData.length; i++){
-
     
     if(customerSearchInput.value == newData[i].name || customerSearchInput.value == newData[i].email || customerSearchInput.value == newData[i].mobile){
         const trEl = document.createElement('tr');
@@ -336,22 +346,12 @@ vehicleStoreDataButton.addEventListener('click', (e)=>{
         const newVehicle = new Vehicle(id,brandInput.value, modelInput.value, yearInput.value, fuelInput.value, seatsInput.value, imgInput.value, priceInput.value);
         newVehicle.updateVehicle(id);
         vehicleStoreDataButton.value = 'Update data';
-        vehicleTable.innerHTML = `  
-        <tr>
-        <th>Picture</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Construction year</th>
-        <th>Fuel type</th>
-        <th>Number of seats</th>
-        <th>Price per day</th>
-        <th>Action</th>
-      </tr>`;
+        renderVehicleTableHeading();
         Vehicle.showAllVehicles();
     }
     brandInput.value = '';
     modelInput.value = '';
-    yearInput.value = '1992';
+    yearInput.value = '';
     fuelInput.value = 'Petrol';
     seatsInput.value = '2';
     imgInput.value = '';
@@ -390,3 +390,35 @@ vehicleDataContainer.addEventListener('click', (e)=>{
     }
 });
 
+vehicleSearchButton.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const vhcls = JSON.parse(localStorage.getItem('vehicles'));
+    const newData = vhcls.filter(item => item.brand == vehicleSearchInput.value || item.model == vehicleSearchInput.value);
+    renderVehicleTableHeading();
+
+    if(vehicleSearchInput.value == ''){
+        alert('We have not found anything!');
+    }
+    for(let i = 0; i < newData.length; i++){
+    
+    if(vehicleSearchInput.value == newData[i].brand || vehicleSearchInput.value == newData[i].model){
+        const trEl = document.createElement('tr');
+                 trEl.innerHTML = `
+                     <tr>
+                     <td><img src="${newData[i].img}"></td>
+                     <td>${newData[i].brand}</td>
+                     <td>${newData[i].model}</td>
+                     <td>${newData[i].year}</td>
+                     <td>${newData[i].fuel}</td>
+                     <td>${newData[i].seats}</td>
+                     <td>${newData[i].price} $</td>
+                     <td>
+                         <button class="edit" data-id="${newData[i].id}">Edit</button>
+                         <button class="delete" data-id="${newData[i].id}">Delete</button>
+                     </td>
+                     </tr>
+                 `
+                 vehicleTable.appendChild(trEl);
+    }
+}
+});
