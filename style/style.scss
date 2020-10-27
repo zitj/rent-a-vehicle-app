@@ -61,20 +61,30 @@ h2{
     font-size: 4em;
     font-weight: 300;
 }
+form{
+    display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 60%;
+        margin-left: 20%;
+        text-align: left;
 input{
+    width: 300px;
+    margin-bottom: 30px;
+    margin-top: 5px;  
+}
+input,
+select{
     padding: 10px 15px;
     font-size: 1.2em;
     outline: none;
     margin-right: 20px;
 }
-button,
-#submit{
-    display: block;
+
+#submit,
+#submitVehicle{
     padding: 20px;
-    margin: 15px 0px 5px 33px;
-    position: absolute;
-    left: 25%;
-    width: 45.5%;
+    width:94.5%;
     color: white;
     border: none;
     outline: none;
@@ -88,8 +98,9 @@ button,
     }
 }
 }
+}
 .data-container{
-    margin-top: 8%;
+    margin-top: 3%;
     h2{
         font-size: 2.5em;
         font-weight: 300;
@@ -131,6 +142,10 @@ button,
 }
 #excuse-panel{
     margin-top: 10%;
+    h1{
+        font-size: 3em;
+        font-weight: 300;
+    }
     h2{
         font-size: 2.3em;
     }
@@ -138,6 +153,22 @@ button,
         font-size: 1.5em;
     }
 }
+#vehicle-panel{
+    form{
+        select{
+            width: 140px;
+            margin-top: 5px;
+        }
+    }
+    .data-container{
+        margin-top: 2%;
+        table{
+            width: 56%;
+            margin-left: 22%;
+        }
+    }
+}
+
 @keyframes intro{
     0%{
         transform: translateY(150px);

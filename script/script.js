@@ -37,6 +37,7 @@ for(let navButton of navButtons){
         classRemoverNavButton();
         classRemoverPanels();
         navButton.classList.toggle('active');
+       
     });
 }
 navButtons[0].addEventListener('click', ()=>{

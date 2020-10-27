@@ -20,10 +20,23 @@
 <div id="customer-panel" class="panel active">
     <div class="form-container">    
         <h2>Add new customer</h2>
+
         <form action="">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="text" name="email" placeholder="Email" required>
-        <input type="text" name="phone" placeholder="Phone" required>
+
+         <div class="input-contaier">
+            <label for="name">Full name</label><br>   
+            <input type="text" name="name" placeholder="Name" required>
+        </div>  
+        <div class="input-contaier">
+            <label for="name">Email address</label><br>  
+            <input type="text" name="email" placeholder="Email" required>
+        </div> 
+
+        <div class="input-contaier">
+            <label for="name">Phone number</label><br> 
+            <input type="text" name="phone" placeholder="Phone" required>
+        </div>
+
         <input type="submit" id="submit" value="Store this data">
         <input type="hidden" id="controlIdEdit">
     </form>
@@ -47,14 +60,54 @@
     <div class="form-container">    
         <h2>Add new vehicle</h2>
         <form action="">
-        <input type="text" name="brand" placeholder="Brand" required>
-        <input type="text" name="model" placeholder="Model" required>
-        <input type="text" name="year" placeholder="Construction year" required>
-        <input type="text" name="fuel" placeholder="Fuel type" required>
-        <input type="text" name="seats" placeholder="Number of seats" required>
-        <input type="text" name="picture" placeholder="Img URL" required>
-        <input type="text" name="price" placeholder="Price per day" required>
-        <input type="text" name="count" placeholder="Count" required>
+
+         <div class="input-container">
+            <label for="brand">Brand</label><br>
+            <input type="text" name="brand" placeholder="Brand" required>
+         </div>   
+        
+         <div class="input-container">
+             <label for="">Model</label><br>
+            <input type="text" name="model" placeholder="Model" required>
+         </div>
+         
+         <div class="input-container">
+             <label for="">Construction year</label><br>
+             <input type="number" min="1900" max="2099" step="1" value="1992" />
+         </div>
+
+        <div class="input-container">
+        <label for="">Fuel type</label><br>
+        <select>
+            <option Value="petrol">Petrol</option>
+            <option Value="diesel">Diesel</option>
+            <option Value="hybrid">Hybrid</option>
+            <option Value="electric">Electric</option>
+        </select> 
+        </div>
+
+        <div class="input-container">
+            <label for="">Number of seats</label><br>
+        <select>
+            <option Value="2">2</option>
+            <option Value="4">4</option>
+            <option Value="5">5</option>
+            <option Value="8">8</option>
+            <option Value="10 +">10 +</option>
+        </select>
+        </div>
+
+        <div class="input-container">
+            <label for="">Img URL</label><br>
+            <input type="text" name="picture" placeholder="Img URL" required>
+        </div>
+
+        <div class="input-container">
+            <label for="">Price per day in $</label><br>
+            <input type="number" min="0" max="1000000" step="1" value="30" />
+        </div>
+
+
         <input type="submit" id="submitVehicle" value="Store this data">
         <input type="hidden" id="vehicleIdEdit">
     </form>
@@ -80,8 +133,9 @@
 </div><!-- end #customer-panel -->
 
 <div id ="excuse-panel"class=" panel">
-    <h2>Unfortunately, I have not had enough time to finish this feature. :(</h2>
-    <p>Apparently I applied quite late for this internship program, just five days ago...</p>
+    <h1>Excuse :'(</h1>
+    <h2>Unfortunately, I have not had enough time to finish this feature.</h2>
+    <p>Apparently I applied quite late for this internship program, only five days ago...</p>
 </div>
 
 </body>
