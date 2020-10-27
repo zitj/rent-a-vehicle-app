@@ -105,6 +105,28 @@ select{
         font-size: 2.5em;
         font-weight: 300;
     }
+    input{
+        width: 20%;
+        margin-bottom: 20px;
+        padding: 8px 5px;
+        outline: none;
+    }
+    button{
+        padding: 10px 20px;
+        background: #0983c0;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius:2px;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        &:hover{
+            opacity: .8;
+        }
+        &:active{
+            opacity: 1;
+        }
+    }
     table{
         width: 46%;
         margin-left: 27%;

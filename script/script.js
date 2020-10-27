@@ -13,6 +13,12 @@ const mobileInput = inputs[2];
 //Customer Button
 const customerStoreDataButton = document.getElementById('submit');
 const controlIdEdit = document.getElementById('controlIdEdit');
+//Customer Search
+const customerSearchContainer = document.getElementById('customerSearchContainer');
+const customerSearchInput = customerSearchContainer.querySelector('input');
+const customerSearchButton = customerSearchContainer.querySelector('button');
+
+
 
 //Vehicle Panel
 const vehiclePanel = document.getElementById('vehicle-panel');
@@ -32,7 +38,10 @@ const seatsInput = vehicleSelections[1];
 const vehicleStoreDataButton = document.getElementById('submitVehicle');
 const vehicleTable = vehicleDataContainer.querySelector('table');
 const vehicleIdEdit = document.getElementById('vehicleIdEdit');
-
+//Vehicle Search
+const vehicleSearchContainer = document.getElementById('vehicleSearchContainer');
+const vehicleSearchInput = vehicleSearchContainer.querySelector('input');
+const vehicleSearchButton = vehicleSearchContainer.querySelector('button');
 
 //Navigation with button
 const navigation = document.querySelector('nav');
@@ -70,6 +79,16 @@ navButtons[2].addEventListener('click', ()=>{
     panels[2].classList.add('active');
 });
 
+//Global functions
+const renderCustomerTableHeading = (e) =>{
+    e.innerHTML = `  
+        <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>`;
+}
 
 //Add new customer
 class Customer{
@@ -155,13 +174,7 @@ customerStoreDataButton.addEventListener('click', (e)=>{
         const newCustomer = new Customer(id,nameInput.value, emailInput.value, mobileInput.value);
         newCustomer.updateCustomer(id);
         customerStoreDataButton.value = 'Update data';
-        table.innerHTML = `  
-        <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>Action</th>
-      </tr>`;
+        renderCustomerTable(table);
         Customer.showAllCustomers();
     }
     nameInput.value = '';
@@ -175,8 +188,8 @@ customerDataContainer.addEventListener('click', (e)=>{
 
         //remove from locals
         const id = +e.target.getAttribute("data-id");
-        const emps = JSON.parse(localStorage.getItem('customers'));
-        const newData = emps.filter(item => item.id != id);
+        const cstmrs = JSON.parse(localStorage.getItem('customers'));
+        const newData = cstmrs.filter(item => item.id != id);
         localStorage.setItem('customers', JSON.stringify(newData));
         
         // remove from html
@@ -195,6 +208,37 @@ customerDataContainer.addEventListener('click', (e)=>{
         customerStoreDataButton.value = 'Update data';
         console.log(item);
     }
+});
+
+customerSearchButton.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const cstmrs = JSON.parse(localStorage.getItem('customers'));
+    const newData = cstmrs.filter(item => item.name == customerSearchInput.value || item.email == customerSearchInput.value);
+    renderCustomerTableHeading(table);
+    if(customerSearchInput.value == ''){
+        alert('We have not found anything!');
+        
+
+    }
+    for(let i = 0; i < newData.length; i++){
+
+    
+    if(customerSearchInput.value == newData[i].name || customerSearchInput.value == newData[i].email || customerSearchInput.value == newData[i].mobile){
+        const trEl = document.createElement('tr');
+                trEl.innerHTML = `
+                    <tr>
+                    <td>${newData[i].name}</td>
+                    <td>${newData[i].email}</td>
+                    <td>${newData[i].mobile}</td>
+                    <td>
+                        <button class="edit" data-id="${newData[i].id}">Edit</button>
+                        <button class="delete" data-id="${newData[i].id}">Delete</button>
+                    </td>
+                    </tr>
+                `
+                table.appendChild(trEl);
+    }
+}
 });
 
 //Add new vehicle
@@ -272,6 +316,10 @@ Vehicle.showAllVehicles();
 
 vehicleStoreDataButton.addEventListener('click', (e)=>{
     
+    if(brandInput.value == '' || modelInput.value == '' || priceInput.value == ''){
+        return;
+    }
+
     e.preventDefault();
     console.log('you have clicked on vehicle button!');  
     

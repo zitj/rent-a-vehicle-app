@@ -129,6 +129,33 @@ header nav a:nth-child(3).active {
   font-weight: 300;
 }
 
+.data-container input {
+  width: 20%;
+  margin-bottom: 20px;
+  padding: 8px 5px;
+  outline: none;
+}
+
+.data-container button {
+  padding: 10px 20px;
+  background: #0983c0;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.data-container button:hover {
+  opacity: .8;
+}
+
+.data-container button:active {
+  opacity: 1;
+}
+
 .data-container table {
   width: 46%;
   margin-left: 27%;
