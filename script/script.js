@@ -308,5 +308,37 @@ vehicleStoreDataButton.addEventListener('click', (e)=>{
     seatsInput.value = '2';
     imgInput.value = '';
     priceInput.value = '';
-})
+});
+
+vehicleDataContainer.addEventListener('click', (e)=>{
+    if(e.target.classList.contains('delete'))
+    {
+
+        //remove from locals
+        const id = +e.target.getAttribute("data-id");
+        const emps = JSON.parse(localStorage.getItem('vehicles'));
+        const newData = emps.filter(item => item.id != id);
+        localStorage.setItem('vehicles', JSON.stringify(newData));
+        
+        // remove from html
+        e.target.parentElement.parentElement.remove();
+
+    }
+  
+    if(e.target.classList.contains('edit'))
+    {
+        const id = +e.target.getAttribute("data-id");
+        const item = JSON.parse(localStorage.getItem('vehicles')).find(item => item.id == id);
+        brandInput.value = item.brand;
+        modelInput.value = item.model;
+        yearInput.value = item.year;
+        fuelInput.value = item.fuel;
+        seatsInput.value = item.seats;
+        imgInput.value = item.img;
+        priceInput.value = item.price;
+        vehicleIdEdit.value = id;
+        vehicleStoreDataButton.value = 'Update data';
+        console.log(item);
+    }
+});
 

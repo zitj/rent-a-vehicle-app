@@ -158,6 +158,9 @@ select{
     }
 }
 #vehicle-panel{
+    .form-container{
+        margin-top: -1%;
+    }
     form{
         select{
             width: 140px;
